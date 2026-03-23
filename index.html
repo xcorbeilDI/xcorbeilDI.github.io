@@ -1,22 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html>
-<head>
-  <meta charset=utf-8 />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo</title>
-<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
-<script src="https://docker.didev.ca/T/OFC4/WPS/210450/16640/5aUEm1PLnmP2FIRy8L9oA8CK9l8J76LC/DI.WebPush-min.js"></script>
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA Test Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js"></script>
+    <script src="https://docker.didev.ca/T/OFC4/WPS/210354/15313/fSlDFWlX700g9O5D0n2wUfY0iss9v9PF/DI.WebPush-min.js"></script>
+  </head>
 
-<body>
-    <label>Adresse courriel du contact</label>
-    <input id="email" type="text" style="width:300px;" />
-    <input type="button" value="Identifier le contact" onclick="DI.WebPush.Identify('f_EMail', document.getElementById('email').value);" />
-    <input type="button" value="Reset identification" onclick="DI.WebPush.ResetIdentify();" />
-    <br/>
-    <input type="button" value="Envoi du token fr" onclick="DI.WebPush.RequestPermission('fr');"  />
-	<input type="button" value="Envoi du token en" onclick="DI.WebPush.RequestPermission('en');"  />
-</body>
+  <body>
+    <main class="page">
+      <h1>QA Test Homepage</h1>
+      <p class="subtitle">Simple tabs to run quick test scenarios.</p>
+
+      <test-tabs aria-label="Test tabs">
+        <test-tab
+          tab-id="tab-webpush-existing"
+          title="WebPush Existing"
+          src="tabs/webpush.html"
+          active
+        ></test-tab>
+
+        <test-tab
+          tab-id="tab-api"
+          title="API Smoke"
+          src="tabs/api.html"
+        ></test-tab>
+
+        <test-tab
+          tab-id="tab-notes"
+          title="Notes"
+          src="tabs/notes.html"
+        ></test-tab>
+      </test-tabs>
+    </main>
+
+    <script src="components.js"></script>
+    <script src="webpush-status.js"></script>
+  </body>
 </html>
