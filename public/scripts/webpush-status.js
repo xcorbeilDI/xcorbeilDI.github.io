@@ -7,6 +7,10 @@
     toggle.dataset.initialized = "1";
 
     var url = new URL(window.location.href);
+    if (!url.searchParams.has("ofsysDebug")) {
+      url.searchParams.set("ofsysDebug", "1");
+      window.history.replaceState({}, "", url.toString());
+    }
     toggle.checked = url.searchParams.get("ofsysDebug") === "1";
 
     toggle.addEventListener("change", function () {
@@ -126,10 +130,4 @@
   };
 
   setupDebugToggle();
-  document.addEventListener("tabsReady", setupDebugToggle);
-  document.addEventListener("tabContentLoaded", function (event) {
-    if (event.detail && event.detail.tabId === "tab-webpush-existing") {
-      setupDebugToggle();
-    }
-  });
 })();

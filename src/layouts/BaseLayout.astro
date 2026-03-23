@@ -1,0 +1,40 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "QA Test Hub" } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const asset = (path: string) => `${baseUrl}${path}`;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem("theme-preference");
+        var preferred =
+          stored ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.setAttribute("data-theme", preferred);
+      })();
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js"></script>
+    <script src="https://docker.didev.ca/T/OFC4/WPS/210354/15313/fSlDFWlX700g9O5D0n2wUfY0iss9v9PF/DI.WebPush-min.js"></script>
+  </head>
+  <body>
+    <slot />
+    <script is:inline src={asset("scripts/theme.js")}></script>
+    <script is:inline src={asset("scripts/tabs.js")}></script>
+    <script is:inline src={asset("scripts/webpush-status.js")}></script>
+  </body>
+</html>

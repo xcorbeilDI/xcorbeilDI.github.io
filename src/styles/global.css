@@ -1,0 +1,275 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --text: #1b2330;
+  --muted: #556175;
+  --primary: #0c6b58;
+  --primary-strong: #084f42;
+  --accent: #e8f6f3;
+  --border: #d7deea;
+  --shadow: 0 18px 42px rgba(16, 24, 40, 0.12);
+  --tab-bg: rgba(255, 255, 255, 0.9);
+  --tab-hover: #5bb5a0;
+  --field-bg: #fbfdff;
+  --result-info-bg: #f9fafb;
+  --toggle-bg: #f8fafc;
+  --toggle-text: #1b2330;
+  --bg-spot-a: #dff7f0;
+  --bg-spot-b: #dceeff;
+}
+
+html[data-theme="dark"] {
+  --bg: #0a1118;
+  --surface: #101a25;
+  --text: #e6edf6;
+  --muted: #95a5bb;
+  --primary: #2ab690;
+  --primary-strong: #17886d;
+  --accent: #143129;
+  --border: #223244;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  --tab-bg: rgba(16, 26, 37, 0.85);
+  --tab-hover: #3cc9a4;
+  --field-bg: #0f1924;
+  --result-info-bg: #111f2d;
+  --toggle-bg: #122232;
+  --toggle-text: #dbe7f5;
+  --bg-spot-a: #143129;
+  --bg-spot-b: #142a3d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 88% 8%, var(--bg-spot-a) 0%, transparent 45%),
+    radial-gradient(circle at 12% 92%, var(--bg-spot-b) 0%, transparent 40%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2.25rem 1.5rem;
+}
+
+.eyebrow {
+  margin: 0;
+  display: inline-block;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--primary-strong);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.42rem 0.85rem;
+  background: var(--toggle-bg);
+  color: var(--toggle-text);
+  box-shadow: none;
+}
+
+.theme-toggle:hover {
+  background: color-mix(in srgb, var(--toggle-bg) 80%, var(--primary) 20%);
+}
+
+h1 {
+  margin-top: 0.6rem;
+  margin-bottom: 0.55rem;
+  font-size: clamp(1.65rem, 4vw, 2.4rem);
+  line-height: 1.08;
+}
+
+.subtitle {
+  margin-top: 0.35rem;
+  margin-bottom: 1.2rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1.2rem 0;
+}
+
+.tab {
+  border: 1px solid var(--border);
+  background: var(--tab-bg);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.58rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.22s ease;
+}
+
+.tab:hover {
+  border-color: var(--tab-hover);
+  transform: translateY(-1px);
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #0c6b58, #129a79);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(12, 107, 88, 0.28);
+}
+
+.tab-panel {
+  display: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.panel-title {
+  margin: 0 0 0.8rem;
+  font-size: 1.04rem;
+}
+
+.row-gap {
+  margin-top: 0.65rem;
+}
+
+.row-gap-lg {
+  margin-top: 0.85rem;
+}
+
+.toggle-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--toggle-bg);
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.72rem;
+}
+
+.email-input {
+  width: 300px;
+}
+
+input[type="text"] {
+  min-width: 280px;
+  max-width: 100%;
+  padding: 0.58rem 0.64rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--field-bg);
+  color: var(--text);
+}
+
+input[type="button"],
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 0.95rem;
+  background: linear-gradient(135deg, #0c6b58, #10826b);
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 7px 16px rgba(12, 107, 88, 0.2);
+}
+
+input[type="button"]:hover,
+button:hover {
+  background: linear-gradient(135deg, #0a5a4a, #0c6b58);
+}
+
+.note {
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.result-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  font-family: "Courier New", Consolas, monospace;
+  font-size: 0.9rem;
+  word-break: break-word;
+}
+
+.result-info {
+  background: var(--result-info-bg);
+}
+
+.result-success {
+  background: #ecfdf5;
+  border-color: #34d399;
+}
+
+.result-error {
+  background: #fef2f2;
+  border-color: #f87171;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: left;
+  }
+
+  .stack {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .email-input {
+    width: 100%;
+  }
+}
