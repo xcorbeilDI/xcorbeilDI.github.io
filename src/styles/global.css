@@ -12,6 +12,12 @@
   --tab-hover: #5bb5a0;
   --field-bg: #fbfdff;
   --result-info-bg: #f9fafb;
+  --result-success-bg: #ecfdf5;
+  --result-success-border: #34d399;
+  --result-success-text: #064e3b;
+  --result-error-bg: #fef2f2;
+  --result-error-border: #f87171;
+  --result-error-text: #7f1d1d;
   --toggle-bg: #f8fafc;
   --toggle-text: #1b2330;
   --bg-spot-a: #dff7f0;
@@ -32,6 +38,12 @@ html[data-theme="dark"] {
   --tab-hover: #3cc9a4;
   --field-bg: #0f1924;
   --result-info-bg: #111f2d;
+  --result-success-bg: #0f2a23;
+  --result-success-border: #2ab690;
+  --result-success-text: #98f5dd;
+  --result-error-bg: #2f1a20;
+  --result-error-border: #f87171;
+  --result-error-text: #fecaca;
   --toggle-bg: #122232;
   --toggle-text: #dbe7f5;
   --bg-spot-a: #143129;
@@ -231,13 +243,15 @@ button:hover {
 }
 
 .result-success {
-  background: #ecfdf5;
-  border-color: #34d399;
+  background: var(--result-success-bg);
+  border-color: var(--result-success-border);
+  color: var(--result-success-text);
 }
 
 .result-error {
-  background: #fef2f2;
-  border-color: #f87171;
+  background: var(--result-error-bg);
+  border-color: var(--result-error-border);
+  color: var(--result-error-text);
 }
 
 @media (max-width: 640px) {

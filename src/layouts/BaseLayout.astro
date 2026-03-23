@@ -16,6 +16,7 @@ const asset = (path: string) => `${baseUrl}${path}`;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href={asset("favicon.svg")} />
     <script is:inline>
       (function () {
         var stored = localStorage.getItem("theme-preference");
@@ -27,9 +28,9 @@ const asset = (path: string) => `${baseUrl}${path}`;
         document.documentElement.setAttribute("data-theme", preferred);
       })();
     </script>
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js"></script>
-    <script src="https://docker.didev.ca/T/OFC4/WPS/210354/15313/fSlDFWlX700g9O5D0n2wUfY0iss9v9PF/DI.WebPush-min.js"></script>
+    <script is:inline src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+    <script is:inline src="https://www.gstatic.com/firebasejs/7.4.0/firebase-messaging.js"></script>
+    <script is:inline src="https://docker.didev.ca/T/OFC4/WPS/210354/15313/fSlDFWlX700g9O5D0n2wUfY0iss9v9PF/DI.WebPush-min.js"></script>
   </head>
   <body>
     <slot />
