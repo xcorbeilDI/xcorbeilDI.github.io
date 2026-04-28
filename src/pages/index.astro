@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import WebPushPanel from "../components/WebPushPanel.astro";
 import ApiPanel from "../components/ApiPanel.astro";
 import NotesPanel from "../components/NotesPanel.astro";
+import EcommercePanel from "../components/EcommercePanel.astro";
 ---
 
 <BaseLayout title="QA Test Hub">
@@ -31,6 +32,9 @@ import NotesPanel from "../components/NotesPanel.astro";
       <button class="tab" data-tab="tab-api" role="tab" aria-selected="false">
         API Smoke
       </button>
+      <button class="tab" data-tab="tab-ecommerce" role="tab" aria-selected="false">
+        Ecommerce
+      </button>
       <button class="tab" data-tab="tab-notes" role="tab" aria-selected="false">
         Notes
       </button>
@@ -38,6 +42,7 @@ import NotesPanel from "../components/NotesPanel.astro";
 
     <WebPushPanel />
     <ApiPanel />
+    <EcommercePanel />
     <NotesPanel />
   </main>
 </BaseLayout>
